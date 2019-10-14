@@ -2,6 +2,10 @@
 #include <iostream>
 
 namespace uiuc {  
+  Cube::Cube() {
+    length_ = 1;
+    std::cout << "Created $1 (default)" << std::endl;
+  }
   //custom constructor
   Cube::Cube(double length) {
     length_ = length;
@@ -9,13 +13,13 @@ namespace uiuc {
   }
 
   //copy constructor
-  Cube::Cube(const Cube &obj) {
+  Cube::Cube(const Cube & obj) {
     length_ = obj.length_;
     std::cout << "Created $" << getVolume() << " via copy" << std::endl;
   }
 
   //custom operator assignment
-  Cube &Cube::operator=(const Cube &obj) {
+  Cube & Cube::operator=(const Cube & obj) {
     std::cout << "Transformed $" << getVolume() << "-> $" << obj.getVolume() << std::endl;
     length_ = obj.length_;
     return *this;
