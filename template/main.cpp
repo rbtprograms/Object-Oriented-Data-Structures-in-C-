@@ -13,9 +13,11 @@ T max(T a, T b) {
 
 int main() {
   cout << "max 3,5: " << max(3,5) << endl; 
-  cout << "max a,d: " << max('a','d') << endl; 
-  cout << "max HELLO,WORLD: " << max('HELLO','WORLD') << endl; 
-  cout << "max Cube(3),Cube(6): " << max(Cube(3),Cube(6)) << endl; 
+  cout << "max a,d: " << max("a","d") << endl; 
+  cout << "max HELLO,WORLD: " << max("HELLO","WORLD") << endl; 
+  
+  // not possible
+  // cout << "max Cube(3),Cube(6): " << max(Cube(3),Cube(6)) << endl; 
 
   return 0;
 }
