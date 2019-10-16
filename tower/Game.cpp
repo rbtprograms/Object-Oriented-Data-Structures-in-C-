@@ -21,6 +21,30 @@ void Game::moveCube(Stack &s1, Stack &s2) {
   s2.push_back(c);
 }
 
+void Game::solve2() {
+  while(stacks_[2].size() != 4) {
+    legalMove(stacks_[0], stacks_[1]);
+    legalMove(stacks_[0],stacks_[2]);
+    legalMove(stacks_[1],stacks_[2]);
+  }
+}
+
+void Game::legalMove(Stack &first, Stack &second) {
+  if (first.size() == 0 && second.size() > 0) {
+    moveCube(second, first);
+  } else if (first.size() > 0 && second.size() == 0) {
+    moveCube(first, second);
+  } else if (first.size() > 0 && second.size() > 0) {
+    if (first.peekTop().getLength() < second.peekTop().getLength()) {
+      moveCube(first, second);
+    } else {
+      moveCube(second, first);
+    }
+  }
+
+  cout << *this << endl;
+}
+
 void Game::move(int n, Stack &source, Stack &target, Stack &auxillary) {
   if (n > 0) {
     // move disks off of start and onto auxillary
